@@ -29,7 +29,7 @@ public class SortServiceTest {
     }
 
     private int[] prepareRandomInstances() {
-        return new int[0];
+        return new int[]{5,4,1,2,3};
     }
 
     private void verifySortedResults(int[] results) {
