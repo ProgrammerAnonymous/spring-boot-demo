@@ -1,8 +1,8 @@
 package demo.springboot.sort;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,7 +20,7 @@ public class SortServiceTest {
     private SortService service;
 
     @Test
-    public void testSort() throws Exception{
+    public void testSort() throws Exception {
         int[] instances = prepareRandomInstances();
 
         int[] results = service.sort(instances);
@@ -29,13 +29,13 @@ public class SortServiceTest {
     }
 
     private int[] prepareRandomInstances() {
-        return new int[]{5,4,1,2,3};
+        return new int[]{5, 4, 1, 3, 2};
     }
 
     private void verifySortedResults(int[] results) {
         int before = results[0];
 
-        for(int i=1; i<results.length; i++){
+        for (int i = 1; i < results.length; i++) {
             int later = results[i];
 
             assertThat(before).isLessThanOrEqualTo(later);

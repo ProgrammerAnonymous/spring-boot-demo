@@ -1,5 +1,7 @@
 package demo.springboot;
 
+import demo.springboot.sort.SortService;
+import demo.springboot.sort.SortServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -9,16 +11,16 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringBootBasicApplication {
-	private static final Logger log = LoggerFactory.getLogger(SpringBootBasicApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(SpringBootBasicApplication.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootBasicApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootBasicApplication.class, args);
+    }
 
-	@Bean
-	public CommandLineRunner sortRunner(){
-		return args -> {
+    @Bean
+    public CommandLineRunner sortRunner() {
+        return args -> {
             log.info("display hello world in command line.");
         };
-	}
+    }
 }
