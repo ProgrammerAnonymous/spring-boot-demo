@@ -1,8 +1,10 @@
 package demo.springboot.sort;
 
+import org.javatuples.Pair;
+
 /**
  * Created by gemhuang on 2017/5/9.
  */
 public interface SortService {
-    int[] sort(int[] instances);
+    Pair<SortStats, int[]> sort(int[] instances);
 }

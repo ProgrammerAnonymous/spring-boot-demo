@@ -1,5 +1,6 @@
 package demo.springboot.sort;
 
+import org.javatuples.Pair;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.FactoryBean;
@@ -23,7 +24,7 @@ public class SortServiceTest {
     public void testSort() throws Exception {
         int[] instances = prepareRandomInstances();
 
-        int[] results = service.sort(instances);
+        Pair<SortStats, int[]> results = service.sort(instances);
 
         verifySortedResults(results);
     }
@@ -32,11 +33,12 @@ public class SortServiceTest {
         return new int[]{5, 4, 1, 3, 2};
     }
 
-    private void verifySortedResults(int[] results) {
-        int before = results[0];
+    private void verifySortedResults(Pair<SortStats, int[]> results) {
+        int[] sorted = results.getValue1();
+        int before = sorted[0];
 
-        for (int i = 1; i < results.length; i++) {
-            int later = results[i];
+        for (int i = 1; i < sorted.length; i++) {
+            int later = sorted[i];
 
             assertThat(before).isLessThanOrEqualTo(later);
 

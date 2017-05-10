@@ -1,5 +1,6 @@
 package demo.springboot.sort;
 
+import org.javatuples.Pair;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,12 +10,12 @@ import org.springframework.stereotype.Service;
 public class SortServiceImpl implements SortService {
 
     @Override
-    public int[] sort(int[] instances) {
+    public Pair<SortStats, int[]> sort(int[] instances) {
         for (int i = 1; i < instances.length; i++) {
             insert(instances, i, instances[i]);
         }
 
-        return instances;
+        return Pair.with(null, instances);
     }
 
     private void insert(int[] instances, int pos, int value) {
